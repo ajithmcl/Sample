@@ -1,0 +1,20 @@
+
+<div class="container">
+    <input type="text" class="form-control" [(ngModel)]="searchText">
+    <table class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersList$ | async | search:searchText">
+                <td> {{ user.username }} </td>
+                <td> {{ user.email }} </td>
+                <td> {{ user.mobile }} </td>
+                <td> <button (click)="EditUser(user)">Edit</button> </td>
+                <td><button (click)="deleteuser(user)">delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

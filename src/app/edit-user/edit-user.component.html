@@ -1,0 +1,26 @@
+<form [formGroup]="registrationForm" (ngSubmit)="signup()">
+    <div class="mb-3">
+        <label for="">username</label>
+        <input type="text" class="form-control" formControlName="username" id="username">
+        <span *ngIf="!registrationForm.value.username && registrationForm.get('username')?.touched">Invalid username</span>
+    </div>
+    <div class="mb-3">
+        <label for="">email</label>
+        <input type="text" class="form-control" formControlName="email" id="email">
+    </div>
+    <div class="mb-3">
+        <label for="">password</label>
+        <input type="password" class="form-control" formControlName="password" id="password">
+    </div>
+    <div class="mb-3">
+        <label for="">mobile</label>
+        <input type="text" class="form-control" formControlName="mobile" id="mobile">
+    </div>
+    <div class="mb-3">
+        <label for="age">age</label>
+        <input type="text" class="form-control" formControlName="age" id="age">
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="!registrationForm.valid">Submit</button>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+<form [formGroup]="loginform" (ngSubmit)="login()">
+<div class="mb-3">
+    <label for="">username</label>
+    <input type="text" class="form-control" formControlName="username" id="username">
+</div>
+<div>
+    <label for="">password</label>
+    <input type="text" class="form-control" formControlName="password" id="password">
+</div>
+<div class="mb-3">
+    <button class="btn btn-primary" [disabled]="!loginform.valid">Login</button>
+</div>
+</form>
