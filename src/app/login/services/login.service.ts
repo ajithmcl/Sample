@@ -11,7 +11,8 @@ export class LoginService {
 
   baseUrl = environment.baseUrl;
 
-  isLoading$ = new BehaviorSubject<boolean>(false)
+  isLoading$ = new BehaviorSubject<boolean>(false);
+  isLoggedIn$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
 

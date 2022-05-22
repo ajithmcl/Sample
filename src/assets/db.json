@@ -7,6 +7,14 @@
       "mobile": "23143534534",
       "age": "12",
       "id": 1
+    },
+    {
+      "username": "siva",
+      "email": "siva@gmail.com",
+      "password": "12345678",
+      "mobile": "87t25786998",
+      "age": "56",
+      "id": 2
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IUserRegistration } from '../models/user.model';
 import { LoginService } from '../services/login.service';
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginform!:FormGroup;
   username: any;
   password: any;
-  constructor(private loginService: LoginService) { 
+  constructor(private loginService: LoginService, private router: Router) { 
     this.loginform=new FormGroup({
       username:new FormControl('', [Validators.required]),
       password:new FormControl('', [Validators.required]),
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
     this.loginService.login().subscribe(users => {
       this.users = users;
         if(this.users.find((user: IUserRegistration) => (user.username == this.loginform.value.username && user.password == this.loginform.value.password))){
-          alert("Logged in successfully")
+          this.router.navigate(['/table']);
+          this.loginService.isLoggedIn$.next(true);
         }else{
           alert("Invalid Credentials")
         }
