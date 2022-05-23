@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoginService } from './login/services/login.service';
 
 @Component({
@@ -8,8 +9,10 @@ import { LoginService } from './login/services/login.service';
 })
 export class AppComponent {
   isLoading$: any;
+  isLoggedIn$!: Observable<boolean>;
   title = 'sample';
   constructor(private login: LoginService){
    this.isLoading$ = this.login.isLoading$;
+   this.isLoggedIn$ = this.login.isLoggedIn$;
   }
 }

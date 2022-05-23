@@ -11,6 +11,10 @@ export class AuthGuard implements CanActivate {
 
   }
   canActivate() {
+    let isLoggedIn = sessionStorage.getItem("isLoggedIn") || false;
+    if(isLoggedIn) {
+      this.login.isLoggedIn$.next(JSON.parse(isLoggedIn));
+    }
     if(this.login.isLoggedIn$.value) {
       return true;
     } else {

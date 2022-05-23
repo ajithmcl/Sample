@@ -31,8 +31,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login().subscribe(users => {
       this.users = users;
         if(this.users.find((user: IUserRegistration) => (user.username == this.loginform.value.username && user.password == this.loginform.value.password))){
-          this.router.navigate(['/table']);
+          this.router.navigate(['/users']);
           this.loginService.isLoggedIn$.next(true);
+          sessionStorage.setItem("isLoggedIn", JSON.stringify(true));
         }else{
           alert("Invalid Credentials")
         }

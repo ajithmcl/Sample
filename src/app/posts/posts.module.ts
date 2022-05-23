@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsListComponent } from './posts-list/posts-list.component';
 import { AddPostComponent } from './add-post/add-post.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -11,7 +13,9 @@ import { AddPostComponent } from './add-post/add-post.component';
     AddPostComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class PostsModule { }

@@ -5,20 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { DataTableComponent } from './data-table/data-table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './helpers/search.pipe';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoaderInterceptor } from './loader.interceptor';
 import { DataBindingComponent } from './data-binding/data-binding.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PostsModule } from './posts/posts.module';
+import { CommonModule } from '@angular/common';
+import { UsersModule } from './users/users.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataTableComponent,
     SearchPipe,
     EditUserComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
     LoginModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PostsModule,
+    UsersModule,
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }

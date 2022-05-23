@@ -3,17 +3,19 @@
     <input type="text" class="form-control" [(ngModel)]="searchText">
     <table class="table table-striped">
         <thead>
-            <th>ID</th>
+            <td *ngFor="let column of columnList"> {{ column }} </td>
+            <!-- <th>ID</th>
             <th>Name</th>
-            <th>Username</th>
+            <th>Username</th> -->
         </thead>
         <tbody>
-            <tr *ngFor="let user of usersList$ | async | search:searchText">
-                <td> {{ user.username }} </td>
+            <tr *ngFor="let rowData of tableData">
+                <td *ngFor="let column of columnList"> {{ rowData[column] }} </td>
+                <!-- <td> {{ user.username }} </td>
                 <td> {{ user.email }} </td>
                 <td> {{ user.mobile }} </td>
                 <td> <button (click)="EditUser(user)">Edit</button> </td>
-                <td><button (click)="deleteuser(user)">delete</button></td>
+                <td><button (click)="deleteuser(user)">delete</button></td> -->
             </tr>
         </tbody>
     </table>
