@@ -3,14 +3,23 @@
     <input type="text" class="form-control" [(ngModel)]="searchText">
     <table class="table table-striped">
         <thead>
-            <td *ngFor="let column of columnList"> {{ column }} </td>
+            <td *ngFor="let column of columnList"> {{ column.columnName }} </td>
             <!-- <th>ID</th>
             <th>Name</th>
             <th>Username</th> -->
         </thead>
         <tbody>
             <tr *ngFor="let rowData of tableData">
-                <td *ngFor="let column of columnList"> {{ rowData[column] }} </td>
+                <td *ngFor="let column of columnList">
+                    <ng-container *ngIf="!column.action">
+                        {{ rowData[column.columnName] }}
+                    </ng-container>
+                    <ng-container *ngIf="column.action">
+                        <span *ngIf="column.type =='button'">
+                            <button (click)="buttonEvent(rowData, column.action)"> {{ column.columnName }} </button>
+                        </span>
+                    </ng-container>
+                     </td>
                 <!-- <td> {{ user.username }} </td>
                 <td> {{ user.email }} </td>
                 <td> {{ user.mobile }} </td>

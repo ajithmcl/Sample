@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -15,8 +15,10 @@ import { LoginService } from '../../login/services/login.service';
 export class DataTableComponent implements OnInit {
   // searchText!: FormControl;
 
-  @Input() columnList: string[] = [];
+  @Input() columnList: any[] = [];
   @Input() tableData!: any[];
+
+  @Output() emitAction = new EventEmitter();
   
   // usersList: IUserRegistration[] =[];
   searchText!: string;
@@ -51,6 +53,10 @@ export class DataTableComponent implements OnInit {
 
   ngOnDestroy() {
     // this.subscription.unsubscribe()
+  }
+
+  buttonEvent(event, action) {
+    this.emitAction.emit({...event, action})
   }
 
 }

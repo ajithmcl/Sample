@@ -13,4 +13,8 @@ export class PostsService {
   getPosts(){
    return this.http.get(`${this.baseUrl}/posts`)
   }
+
+  deletePost(id) {
+    return this.http.delete(`${this.baseUrl}/posts/${id}`)
+  }
 }

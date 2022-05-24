@@ -1,1 +1,5 @@
-<app-data-table [columnList]="columnsList" [tableData]="postsList"></app-data-table>
+<app-data-table 
+[columnList]="columnList" 
+[tableData]="postsList" 
+(emitAction)="buttonAction($event)"
+></app-data-table>
