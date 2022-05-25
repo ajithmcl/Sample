@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PostsService } from '../services/posts.service';
 
@@ -11,9 +12,12 @@ export class PostsListComponent implements OnInit {
 
   postsList: any;
   columnList: any[] = [];
-  constructor(private postsService: PostsService) {
+  constructor(private postsService: PostsService, private router: Router) {
     this.postsService.getPosts().subscribe(res => {
       this.postsList = res;
+     this.postsList = this.postsList.map(post => {
+        return { ...post, status: post.status || "NEW" }
+      })
        let columns = Object.keys(res[0]);
        for(let i=0; i < columns.length; i++){
          this.columnList.push({ columnName: columns[i], action: '' })
@@ -36,6 +40,9 @@ export class PostsListComponent implements OnInit {
           this.postsList = res;
         })
       });
+    } else if(event.action == "update") {
+      delete event.action
+      this.router.navigate(['/posts/add-post'], { state: { data: event } });
     }
   }
 

@@ -11,13 +11,16 @@
         <tbody>
             <tr *ngFor="let rowData of tableData">
                 <td *ngFor="let column of columnList">
-                    <ng-container *ngIf="!column.action">
+                    <ng-container *ngIf="!column.action && column.columnName !== 'status'">
                         {{ rowData[column.columnName] }}
                     </ng-container>
                     <ng-container *ngIf="column.action">
                         <span *ngIf="column.type =='button'">
                             <button (click)="buttonEvent(rowData, column.action)"> {{ column.columnName }} </button>
                         </span>
+                    </ng-container>
+                    <ng-container *ngIf="column.columnName=='status'">
+                        <span class="badge" [class.bg-primary]="rowData.status == 'NEW'" [class.bg-secondary]="rowData.status == 'UPDATED'"> {{ rowData.status }} </span>
                     </ng-container>
                      </td>
                 <!-- <td> {{ user.username }} </td>

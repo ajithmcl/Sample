@@ -1,1 +1,9 @@
-<p>add-post works!</p>
+<form action="" [formGroup]="postForm" class="row" (ngSubmit)="submitPost()">
+    <div class="col-6">
+        <label for="title">Title</label>
+        <input id="title" type="text" formControlName="title" class="form-control col-4 m-2">
+        <label for="body">Body</label>
+        <input id="body" type="text" formControlName="body" class="form-control col-4 m-2">
+        <input type="submit" value="Submit">
+    </div>
+</form>

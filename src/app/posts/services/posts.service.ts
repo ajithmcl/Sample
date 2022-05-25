@@ -15,6 +15,10 @@ export class PostsService {
   }
 
   deletePost(id) {
-    return this.http.delete(`${this.baseUrl}/posts/${id}`)
+    return this.http.delete(`${this.baseUrl}/posts/${id}`);
+  }
+
+  updatePost(id, request) {
+    return this.http.put(`${this.baseUrl}/posts/${id}`, request);
   }
 }
