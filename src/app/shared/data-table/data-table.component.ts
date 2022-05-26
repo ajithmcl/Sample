@@ -16,12 +16,20 @@ export class DataTableComponent implements OnInit {
   // searchText!: FormControl;
 
   @Input() columnList: any[] = [];
-  @Input() tableData!: any[];
+  data: any;
+  noOfItemsPerPage: number = 4;
+  @Input() set tableData(value){
+    this.data = value;
+    this.dataToShow = value.slice(0, 4);
+    console.log(this.dataToShow)
+  }
 
   @Output() emitAction = new EventEmitter();
+  currentPage: number = 0;
   
   // usersList: IUserRegistration[] =[];
   searchText!: string;
+  dataToShow: any[];
   // usersList$!: Observable<any>;
   // subscription!: Subscription;
   // constructor(private login: LoginService, private search: SearchPipe, private router: Router) { }
@@ -36,6 +44,8 @@ export class DataTableComponent implements OnInit {
     // this.searchText.valueChanges.subscribe(value => {
     // this.search.transform(this.usersList, value);
     // })
+
+    
   }
 
   // EditUser(user: IUserRegistration) {
@@ -58,5 +68,17 @@ export class DataTableComponent implements OnInit {
   buttonEvent(event, action) {
     this.emitAction.emit({...event, action})
   }
+
+  prevPatch() {
+    this.dataToShow = [];
+    this.dataToShow = this.data.slice(this.currentPage-4, this.currentPage)
+    this.currentPage = this.currentPage - 4;
+   }
+
+  nextPatch() {
+    this.currentPage = this.currentPage + this.noOfItemsPerPage;
+    this.dataToShow = [];
+    this.dataToShow = this.data.slice(this.currentPage, this.currentPage+this.noOfItemsPerPage);
+   }
 
 }

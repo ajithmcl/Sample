@@ -9,7 +9,7 @@
             <th>Username</th> -->
         </thead>
         <tbody>
-            <tr *ngFor="let rowData of tableData">
+            <tr *ngFor="let rowData of dataToShow">
                 <td *ngFor="let column of columnList">
                     <ng-container *ngIf="!column.action && column.columnName !== 'status'">
                         {{ rowData[column.columnName] }}
@@ -31,4 +31,8 @@
             </tr>
         </tbody>
     </table>
+    <div class="display-flex">
+        <button class="m-2 btn btn-primary" (click)="prevPatch()" [disabled]="!currentPage">Prev</button>
+        <button class="m-2 btn btn-primary" (click)="nextPatch()">Next</button>
+    </div>
 </div>
