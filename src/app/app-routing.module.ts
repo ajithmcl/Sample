@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DataBindingComponent } from './data-binding/data-binding.component';
-import { DataTableComponent } from './shared/data-table/data-table.component';
+import { DataTableComponent } from './data-table/data-table.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { AuthGuard } from './helpers/auth.guard';
 import { LoginComponent } from './login/login/login.component';

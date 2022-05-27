@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login/login.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchPipe } from './helpers/search.pipe';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoaderInterceptor } from './loader.interceptor';
 import { DataBindingComponent } from './data-binding/data-binding.component';
@@ -15,11 +14,11 @@ import { PostsModule } from './posts/posts.module';
 import { CommonModule } from '@angular/common';
 import { UsersModule } from './users/users.module';
 import { SharedModule } from './shared/shared.module';
+import { SearchPipe } from './helpers/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchPipe,
     EditUserComponent,
     DataBindingComponent,
     NavbarComponent
@@ -36,6 +35,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule
   ],
   providers: [
+    SearchPipe,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
 ],
   bootstrap: [AppComponent]

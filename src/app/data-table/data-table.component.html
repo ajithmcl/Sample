@@ -32,7 +32,10 @@
         </tbody>
     </table>
     <div class="display-flex">
-        <button class="m-2 btn btn-primary" (click)="prevPatch()" [disabled]="!currentPage">Prev</button>
-        <button class="m-2 btn btn-primary" (click)="nextPatch()">Next</button>
+        <button class="m-2 btn btn-primary" (click)="prevPage()" [disabled]="!currentPage">Prev</button>
+        <div class="display-flex">
+            <a *ngFor="let page of pagesArray; index as i" class="btn btn-primary m-2" (click)="goToPage(page, i)"> {{ page }} </a>
+        </div>
+        <button class="m-2 btn btn-primary" (click)="nextPage()">Next</button>
     </div>
 </div>

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataTableComponent } from './data-table/data-table.component';
+import { DataTableComponent } from '../data-table/data-table.component';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../helpers/search.pipe';
 
 
 

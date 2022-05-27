@@ -7,7 +7,6 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-
 @NgModule({
   declarations: [
     PostsListComponent,
@@ -18,6 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     SharedModule,
     ReactiveFormsModule
-  ]
+  ],
 })
 export class PostsModule { }
