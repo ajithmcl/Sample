@@ -16,12 +16,13 @@ export class PostsListComponent implements OnInit {
     this.postsService.getPosts().subscribe(res => {
       this.postsList = res;
      this.postsList = this.postsList.map(post => {
-        return { ...post, status: post.status || "NEW" }
+        return { ...post, status: post.status || "NEW", age: +(Math.floor(100000 + Math.random() * 900000)) }
       })
-       let columns = Object.keys(res[0]);
+       let columns = Object.keys(this.postsList[0]);
        for(let i=0; i < columns.length; i++){
          this.columnList.push({ columnName: columns[i], action: '' })
        };
+       this.columnList.find(column => column.columnName == 'age').isSortable = true;
        if(this.columnList.length){
         this.columnList.push({ columnName: "Delete", action: 'delete', type: 'button' });
         this.columnList.push({ columnName: "Update", action: 'update', type: 'button' });

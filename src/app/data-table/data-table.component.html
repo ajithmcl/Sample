@@ -3,13 +3,18 @@
     <input type="text" class="form-control" [(ngModel)]="searchText">
     <table class="table table-striped">
         <thead>
-            <td *ngFor="let column of columnList"> {{ column.columnName }} </td>
+            <td class="display-flex" *ngFor="let column of columnList"> {{ column.columnName }}
+            <ng-container *ngIf="column.isSortable">
+            <i class="fa fa-arrow-up" (click)="sort('asc', column)"></i>
+            <i class="fa fa-arrow-down" (click)="sort('dsc', column)"></i>
+            </ng-container>    
+            </td>
             <!-- <th>ID</th>
             <th>Name</th>
             <th>Username</th> -->
         </thead>
         <tbody>
-            <tr *ngFor="let rowData of dataToShow">
+            <tr *ngFor="let rowData of dataToShow | search: searchText">
                 <td *ngFor="let column of columnList">
                     <ng-container *ngIf="!column.action && column.columnName !== 'status'">
                         {{ rowData[column.columnName] }}

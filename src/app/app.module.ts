@@ -14,7 +14,13 @@ import { PostsModule } from './posts/posts.module';
 import { CommonModule } from '@angular/common';
 import { UsersModule } from './users/users.module';
 import { SharedModule } from './shared/shared.module';
-import { SearchPipe } from './helpers/search.pipe';
+// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons';
+import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
+
 
 @NgModule({
   declarations: [
@@ -32,12 +38,17 @@ import { SearchPipe } from './helpers/search.pipe';
     ReactiveFormsModule,
     PostsModule,
     UsersModule,
-    SharedModule
+    SharedModule,
+    FontAwesomeModule
+    // AngularFontAwesomeModule
   ],
   providers: [
-    SearchPipe,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
 ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    library.add(faSquare, faCheckSquare, farSquare, farCheckSquare, faStackOverflow, faGithub, faMedium);
+  }
+ }

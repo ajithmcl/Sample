@@ -4,8 +4,7 @@ import { SearchPipe } from 'src/app/helpers/search.pipe';
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
-  styleUrls: ['./data-table.component.scss'],
-  providers: [SearchPipe]
+  styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements OnInit {
   // searchText!: FormControl;
@@ -97,6 +96,16 @@ export class DataTableComponent implements OnInit {
 
   nextPage() {
     this.goToPage(this.currentPage + 1, 0);
+  }
+
+  sort(sortType, column) {
+    this.dataToShow.sort((rowData1, rowData2) => {
+      if (rowData1[column.columnName] > rowData2[column.columnName]) {
+        return sortType == 'dsc' ? -1 : 1
+      } else {
+        return sortType == 'dsc' ? 1 : -1
+      }
+    })
   }
 
 }
