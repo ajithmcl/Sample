@@ -12,15 +12,47 @@ export class UsersListComponent implements OnInit {
 
   usersList$: Observable<any[]> = from([]);
   columnList!: string[];
+  usersList: any[];
+
+  checkboxData = [
+    {
+      name: "Angular",
+      id: "anggular",
+      checked: true
+    },
+    {
+      name: "React",
+      id: "react",
+      checked: false
+    },
+    {
+      name: "Javascript",
+      id: "javascript",
+      checked: false
+    },
+    {
+      name: "Vue",
+      id: "vue",
+      checked: false
+    }
+];
+
+coursesList = [];
 
   constructor(private loginService: LoginService) {
-    this.usersList$ = this.loginService.login();
-    this.usersList$.subscribe(users => {
-      this.columnList = Object.keys(users[0])
-    })
+    
    }
 
   ngOnInit(): void {
+  }
+
+  changeData(event) {
+    if(event.checked){
+    this.coursesList.push(event);
+    console.log(this.coursesList);
+    }else {
+      this.coursesList = this.coursesList.filter(course => course.id !== event.id);
+    }
   }
 
 }

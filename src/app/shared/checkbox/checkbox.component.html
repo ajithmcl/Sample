@@ -1,0 +1,4 @@
+<label [for]="checkboxContent.name"> {{ checkboxContent.name }} </label>
+<input type="checkbox" class="" [name]="checkboxContent.name" [id]="checkboxContent.id" [checked]="checkboxContent.checked"
+(change)="changeCheckbox($event, checkboxContent)"
+>

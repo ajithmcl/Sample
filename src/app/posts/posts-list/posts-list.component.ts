@@ -10,6 +10,12 @@ import { PostsService } from '../services/posts.service';
 })
 export class PostsListComponent implements OnInit {
 
+  nextButton = {
+    btnName: "Go to users",
+    action: "navigate",
+    url: "/users/users-list",
+    className: "btn btn-primary"
+  }
   postsList: any;
   columnList: any[] = [];
   constructor(private postsService: PostsService, private router: Router) {
@@ -45,6 +51,10 @@ export class PostsListComponent implements OnInit {
       delete event.action
       this.router.navigate(['/posts/add-post'], { state: { data: event } });
     }
+  }
+
+  sendPosts(event) {
+    sessionStorage.setItem("posts", JSON.stringify({"list": this.postsList, columns: this.columnList}));
   }
 
 }

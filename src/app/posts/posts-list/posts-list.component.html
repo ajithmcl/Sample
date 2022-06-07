@@ -3,3 +3,5 @@
 [tableData]="postsList" 
 (emitAction)="buttonAction($event)"
 ></app-data-table>
+
+<app-button (action)="sendPosts($event)" [btnContent]="nextButton"></app-button>

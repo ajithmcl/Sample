@@ -1,1 +1,7 @@
-<app-data-table [columnList]="columnList" [tableData]="usersList$ | async"></app-data-table>
+<div *ngFor="let checkbox of checkboxData">
+    <app-checkbox (emitCheckBox)="changeData($event)" [checkboxContent]="checkbox"></app-checkbox>
+</div>
+
+<ul *ngIf="coursesList.length">
+    <li *ngFor="let course of coursesList"> {{ course.name }} </li>
+</ul>

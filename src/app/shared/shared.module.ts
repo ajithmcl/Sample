@@ -8,12 +8,16 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons';
 import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { ButtonComponent } from './button/button.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 
 
 @NgModule({
   declarations: [
     DataTableComponent,
-    SearchPipe
+    SearchPipe,
+    ButtonComponent,
+    CheckboxComponent
 
   ],
   imports: [
@@ -22,7 +26,9 @@ import { faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-sv
     FontAwesomeModule,
   ],
   exports: [
-    DataTableComponent
+    DataTableComponent,
+    ButtonComponent,
+    CheckboxComponent
   ]
 })
 export class SharedModule { 
