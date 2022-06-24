@@ -17,8 +17,8 @@ export class DataTableComponent implements OnInit {
   selectedIndex: number = 1;
   @Input() set tableData(value) {
     this.data = value;
-    this.dataToShow = value.slice(0, 4);
-    this.noOfPages = this.data.length / 4;
+    this.dataToShow = value?.length ? value.slice(0, 4) : [];
+    this.noOfPages = this.data?.length / 4;
     this.pagesArray = [1, 2, 3, 4];
     // this.setPagination();
   }

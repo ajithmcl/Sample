@@ -19,10 +19,11 @@
   ],
   "posts": [
     {
-      "userId": 1,
+      "title": "qwertyuiodsfdsfsdfdsffdgrdfg",
+      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
       "id": 2,
-      "title": "qui est esse",
-      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
+      "userId": null,
+      "status": "UPDATED"
     },
     {
       "userId": 1,
@@ -131,6 +132,13 @@
       "id": 20,
       "title": "doloribus ad provident suscipit at",
       "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
+    },
+    {
+      "title": "Krishna",
+      "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla",
+      "id": 99,
+      "userId": 99,
+      "status": "UPDATED"
     }
   ]
 }

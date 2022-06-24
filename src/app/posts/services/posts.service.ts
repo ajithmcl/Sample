@@ -18,7 +18,7 @@ export class PostsService {
     return this.http.delete(`${this.baseUrl}/posts/${id}`);
   }
 
-  updatePost(id, request) {
+  updatePost(id, request = null) {
     return this.http.put(`${this.baseUrl}/posts/${id}`, request);
   }
 }
